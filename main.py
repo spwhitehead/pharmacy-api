@@ -36,7 +36,9 @@ async def update_patient(first_name: str, updated_patient: Patient) -> None:
         if patient.first_name == first_name:
             patients[i] = updated_patient
             return "Patient updated successfully"
-    return "Patient not found"
+        else:
+            patients.append(updated_patient)
+            return "Patient not found, created successfully"
 
 
 @app.delete("/patients/{first_name}")
